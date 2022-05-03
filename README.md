@@ -42,6 +42,18 @@ $ curl http://localhost:3000
 {"User-Agent":"curl/7.54.0","message":"Hello world"}
 ```
 
+# ライブラリ
+* [`go.uber.org/zap`](https://pkg.go.dev/go.uber.org/zap)
+  - 高速・構造化・レベリングが売りの Go ロギングライブラリらしい。今回はリクエストのログを保存するのに用いている
+* [`github.com/gin-gonic/gin`](https://github.com/gin-gonic/gin)
+  - サーバサイドのフレームワーク。ざっくり Go では echo か gin か、だと思っている
+
+* そういえば、Go でサーバサイドを実装するときに `Mux` というのを見たことがあるな
+  - [`github.com/gorilla/mux`](https://github.com/gorilla/mux) にあるように、ライブラリを使っていたのか
+  - はたまた、`mux := http.NewServeMux()` [(link)](https://qiita.com/Syoitu/items/8e7e3215fb7ac9dabc3a#gin%E3%81%AE%E5%9F%BA%E7%A4%8E) にあるように、慣習的に Mux という名前をつける (使う) のか..
+  - 今度、当時のソースコードをあたってみよう
+
+
 # 参考
 
 ## `net/http` を使ってサーバを立てる
