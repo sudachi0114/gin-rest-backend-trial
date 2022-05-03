@@ -8,6 +8,8 @@ Go で backend server を作りながら、感覚を戻したい
 $ go run main.go
 ```
 
+## `net/http`
+
 ```
 $ curl http://localhost:3000
 Hello world
@@ -29,6 +31,12 @@ map[url_long:[hoge 123]]
   [val] [hoge 123]
 ```
 
+## `Gin`
+
+```
+$  curl http://localhost:3000
+{"message":"Hello world"}
+```
 
 # 参考
 
