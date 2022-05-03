@@ -8,10 +8,17 @@ import (
 
 func main() {
 	engine := gin.Default()
+	ua := ""
+
+	engine.Use(func(c *gin.Context) {
+		ua = c.GetHeader("User-Agent")
+		c.Next()
+	})
 
 	engine.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
-			"message": "Hello world",
+			"message":    "Hello world",
+			"User-Agent": ua,
 		})
 	})
 

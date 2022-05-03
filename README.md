@@ -5,6 +5,10 @@ Go で backend server を作りながら、感覚を戻したい
 ## Usage
 
 ```
+$ go build main.go && ./main
+```
+
+```
 $ go run main.go
 ```
 
@@ -34,8 +38,8 @@ map[url_long:[hoge 123]]
 ## `Gin`
 
 ```
-$  curl http://localhost:3000
-{"message":"Hello world"}
+$ curl http://localhost:3000
+{"User-Agent":"curl/7.54.0","message":"Hello world"}
 ```
 
 # 参考
@@ -46,3 +50,7 @@ $  curl http://localhost:3000
 * [Go言語でhttpサーバーを立ち上げてHello Worldをする](https://qiita.com/taizo/items/bf1ec35a65ad5f608d45)
 * [3.2 Goで簡単なWebサーバを立てる](https://docs.kilvn.com/build-web-application-with-golang/ja/03.2.html)
     - このドキュメント、[CSRF対策](https://docs.kilvn.com/build-web-application-with-golang/ja/09.1.html) とか [socket プログラミング](https://docs.kilvn.com/build-web-application-with-golang/ja/08.1.html) の記事とかあって面白そう。今度ちゃんと見てみよう
+
+## `Gin`
+
+* [ginを最速でマスターしよう](https://qiita.com/Syoitu/items/8e7e3215fb7ac9dabc3a)
