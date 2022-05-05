@@ -10,7 +10,8 @@ import (
 )
 
 var DbEngine *xorm.Engine
-var err error
+var err error // *sql.DBだけでなく、errもpackageグローバルに定義する
+// https://tech-up.hatenablog.com/entry/2019/01/05/212630
 
 func init() {
 	driverName := "mysql"

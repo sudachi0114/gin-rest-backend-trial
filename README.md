@@ -47,6 +47,12 @@ $ curl http://localhost:3000/note/v1/test
 {"status":"ok"}
 ```
 
+```
+$ curl http://localhost:3000/note/v1/list
+{"data":[]}
+```
+
+
 # ライブラリ
 * [`go.uber.org/zap`](https://pkg.go.dev/go.uber.org/zap)
   - 高速・構造化・レベリングが売りの Go ロギングライブラリらしい。今回はリクエストのログを保存するのに用いている
