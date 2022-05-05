@@ -1,2 +1,5 @@
 # binary
 main
+
+# data
+docker/db/data/
