@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/sudachi0114/gin-rest-backend-trial/controller"
 	"github.com/sudachi0114/gin-rest-backend-trial/middleware"
 )
 
@@ -17,6 +18,14 @@ func main() {
 			"status": "healthy",
 		})
 	})
+
+	noteEngine := engine.Group("/note")
+	{
+		v1 := noteEngine.Group("/v1")
+		{
+			v1.GET("/test", controller.NoteTest)
+		}
+	}
 
 	engine.Run(":3000")
 }
