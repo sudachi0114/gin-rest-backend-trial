@@ -24,6 +24,7 @@ func main() {
 		v1 := noteEngine.Group("/v1")
 		{
 			v1.GET("/test", controller.NoteTest)
+			v1.GET("/list", controller.NoteList)
 		}
 	}
 
