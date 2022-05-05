@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/sudachi0114/gin-rest-backend-trial/service"
 )
 
 func NoteTest(c *gin.Context) {
@@ -13,7 +14,9 @@ func NoteTest(c *gin.Context) {
 }
 
 func NoteList(c *gin.Context) {
+	noteService := service.NoteService{}
+	NotesList := noteService.GetNoteList()
 	c.JSON(http.StatusOK, gin.H{
-		"message": "ノートのリストを取得して、ここに表示します",
+		"data": NotesList,
 	})
 }
