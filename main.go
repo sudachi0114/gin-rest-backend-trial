@@ -1,29 +1,35 @@
 package main
 
 import (
-	"fmt"
-	"log"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
+	_ "github.com/go-sql-driver/mysql"
+
+	"github.com/sudachi0114/gin-rest-backend-trial/controller"
+	"github.com/sudachi0114/gin-rest-backend-trial/middleware"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	r.ParseForm()
-	fmt.Println(r.Form)
-	fmt.Println("[path]", r.URL.Path)
-	fmt.Println("[scheme]", r.URL.Scheme)
-	fmt.Println("[url_long]", r.Form["url_long"])
-	for k, v := range r.Form {
-		fmt.Println("  [key]", k)
-		fmt.Println("  [val]", v)
-	}
-
-	fmt.Fprintf(w, "Hello world")
-}
-
 func main() {
-	http.HandleFunc("/", handler)
-	err := http.ListenAndServe(":3000", nil)
-	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
+	engine := gin.Default()
+
+	engine.Use(middleware.RecordUaAndTime)
+
+	engine.GET("/health", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"status": "healthy",
+		})
+	})
+
+	noteEngine := engine.Group("/note")
+	{
+		v1 := noteEngine.Group("/v1")
+		{
+			v1.GET("/test", controller.NoteTest)
+			v1.GET("/list", controller.NoteList)
+			v1.POST("/add", controller.NoteAdd)
+		}
 	}
+
+	engine.Run(":3000")
 }
