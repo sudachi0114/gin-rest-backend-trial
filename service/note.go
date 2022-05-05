@@ -12,3 +12,11 @@ func (NoteService) GetNoteList() []model.Note {
 	}
 	return notes
 }
+
+func (NoteService) SetNote(note *model.Note) error {
+	_, err := DbEngine.Insert(note)
+	if err != nil {
+		return err
+	}
+	return nil
+}

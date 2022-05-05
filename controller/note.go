@@ -29,7 +29,14 @@ func NoteAdd(c *gin.Context) {
 		return
 	}
 
+	noteService := service.NoteService{}
+	err = noteService.SetNote(&note)
+	if err != nil {
+		c.String(http.StatusInternalServerError, "Internal Server Error")
+		return
+	}
+
 	c.JSON(http.StatusOK, gin.H{
-		"requested": note,
+		"status": "ok",
 	})
 }

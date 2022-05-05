@@ -49,7 +49,12 @@ $ curl http://localhost:3000/note/v1/test
 
 ```
 $ curl http://localhost:3000/note/v1/list
-{"data":[]}
+{"data":[{"id":1,"title":"hoge","content":"fuga"}]}
+```
+
+```
+$ curl -X POST -H "Content-Type: application/json" -d '{"title":"hoge", "content":"fuga"}'  http://localhost:3000/note/v1/add
+{"status":"ok"}
 ```
 
 
