@@ -10,12 +10,13 @@ import (
 )
 
 var DbEngine *xorm.Engine
+var err error
 
 func init() {
 	driverName := "mysql"
-	DsName := "root:root@(127.0.0.1:3306)/sample_db?charset=utf8"
-	err := errors.New("")
-	DbEngine, err := xorm.NewEngine(driverName, DsName)
+	DsName := "root:root@tcp(127.0.0.1:3306)/sample_db?charset=utf8mb4&parseTime=True&loc=Local"
+	err = errors.New("")
+	DbEngine, err = xorm.NewEngine(driverName, DsName)
 	if err != nil && err.Error() != "" {
 		log.Fatal("<DB 接続失敗>", err.Error())
 	}
