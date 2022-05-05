@@ -4,6 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	_ "github.com/go-sql-driver/mysql"
+
 	"github.com/sudachi0114/gin-rest-backend-trial/controller"
 	"github.com/sudachi0114/gin-rest-backend-trial/middleware"
 )
