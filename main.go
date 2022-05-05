@@ -27,6 +27,7 @@ func main() {
 		{
 			v1.GET("/test", controller.NoteTest)
 			v1.GET("/list", controller.NoteList)
+			v1.POST("/add", controller.NoteAdd)
 		}
 	}
 
